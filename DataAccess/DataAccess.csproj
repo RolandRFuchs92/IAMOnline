@@ -5,15 +5,11 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.0" />
+		<PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.0-preview1-final" />
 	</ItemGroup>
 	
 	<ItemGroup>
-		<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.1.0" />
-	</ItemGroup>
-	
-	<ItemGroup>
-	  <Folder Include="Entities\" />
+		<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.1.0-preview1-final" />
 	</ItemGroup>
 	
 </Project>
