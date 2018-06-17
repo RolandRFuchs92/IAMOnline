@@ -15,12 +15,14 @@ namespace DataAccess.Seed
     {
 	    private readonly SiteDb _db;
 	    private readonly IHostingEnvironment _hosting;
+	    private readonly string _path;
 
 	    public SiteDbSeeder(SiteDb db, IHostingEnvironment hosting)
 	    {
 		    _db = db;
 		    _hosting = hosting;
-	    }
+			_path = Path.Combine(_hosting.ContentRootPath, "Seed/DefaultData");
+		}
 
 	    public void Seed()
 	    {
@@ -28,15 +30,32 @@ namespace DataAccess.Seed
 
 		    if (!_db.BlogDetails.Any())
 		    {
-
-			    var filePath = Path.Combine(_hosting.ContentRootPath, "Seed/DefaultData/BlogDetails.json");
-			    var json = File.ReadAllText(filePath);
-			    var details = JsonConvert.DeserializeObject<IEnumerable<BlogDetail>>(json);
-
-				_db.BlogDetails.AddRange(details);
-
+				_db.BlogDetails.AddRange(GetData<BlogDetail>("BlogDetail.json"));
 		    }
 	    }
+
+	    private IEnumerable<T> GetData<T>(string fileName)
+	    {
+		    var dataPath = GetRawDataPath(fileName);
+		    var rawDataString = GetRawStringData(dataPath);
+			return GetSerializedJsonObject<T>(rawDataString);
+		}
+
+
+	    private string GetRawDataPath(string fileName)
+	    {
+		    return Path.Combine(_path, fileName);
+	    }
+
+	    private string GetRawStringData(string dataPath)
+	    {
+			return File.ReadAllText(dataPath);
+		}
+
+	    private IEnumerable<T> GetSerializedJsonObject<T>(string rawStringData)
+	    {
+			return JsonConvert.DeserializeObject<IEnumerable<T>>(rawStringData);
+		}
 
     }
 }

@@ -22,4 +22,27 @@ namespace DataAccess.Entities
 		public bool IsDeleted { get; set; }
 		public bool IsActive { get; set; }
 	}
+	/*
+	https://next.json-generator.com/
+[
+  {
+    'repeat(5, 10)': {
+      "BlogImagePath": "/content/placeholderImage.jpg",
+      "BlogTitle": '{{lorem(4, "words")}}',
+      "BlogAuthor": "{{firstName()}} {{surname()}}",
+      "BlogWrittenOn": "{{moment(this.date(new Date(2014, 0, 1), new Date())).format('DD MMM YYYY')}}",
+      "BlogIntro": "{{lorem(15, 'words')}}",
+      "BlogBody": "{{lorem(1, 'paragraphs')}}",
+      "BlogRemarks" : "{{lorem(10, 'words')}}",
+      "BlogClosingCaption": "{{lorem(5, 'words')}}",
+      "BlogStartingDate": "{{moment(this.date(new Date(2014, 0, 1), new Date())).format('DD MMM YYYY')}}",
+      "CreatedOn": "{{moment(this.date(new Date(2014, 0, 1), new Date())).format('DD MMM YYYY')}}",
+      "BlogType": "1",
+      "IsDeleted": "{{bool()}}",
+      "IsActive": "{{bool()}}"
+      }
+    }
+  
+]
+	 */
 }
