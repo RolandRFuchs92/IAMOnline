@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DataAccess.Context;
+using DataAccess.Repository;
 using DataAccess.Seed;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,7 +33,7 @@ namespace Iamonline
 		        });
 
 	        services.AddTransient<SiteDbSeeder>();
-			services.AddScoped<>()>()
+	        services.AddScoped<ISiteDbRepository, SiteDbRepository>();
 	        services.AddMvc();
         }
 
