@@ -27,7 +27,7 @@ namespace Iamonline
         {
 	        services.AddDbContext<SiteDb>(cfg =>
 		        {
-			        cfg.UseSqlServer(_config.GetConnectionString("SiteDbConnectionString"));
+			        cfg.UseSqlServer(_config.GetConnectionString("SiteDb"),b => b.MigrationsAssembly("DataAccess"));
 		        });
         }
 

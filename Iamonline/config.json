@@ -1,5 +1,5 @@
 {
-	"ConnectionStrings": {
-		"SiteDbContext":  "server=(localdb)\\MSSQLLocalDB;Database=SiteDb;Integrated Security=true;MultipleActiveResultSets=true;" 
+	"connectionStrings": {
+		"SiteDb": "server=MSI\\SQLEXPRESS;Database=SiteDb;Integrated Security=true;MultipleActiveResultSets=true;" 
 	} 	
 }
