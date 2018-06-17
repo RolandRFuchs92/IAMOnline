@@ -17,10 +17,7 @@ namespace DataAccess.Entities
 		public string BlogRemarks { get; set; }
 		public string BlogClosingCaption { get; set; }
 		public DateTime BlogStartingDate { get; set; }
-		public DateTime CreatedOn { get; set; }
 		public BlogType BlogType { get; set; }
-		public bool IsDeleted { get; set; }
-		public bool IsActive { get; set; }
 	}
 	/*
 	https://next.json-generator.com/
