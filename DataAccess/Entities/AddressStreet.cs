@@ -10,7 +10,7 @@ namespace DataAccess.Entities
     public class AddressStreet
     {
 		[Key]
-	    public int StreetId { get; set; }
+	    public int AddressStreetId { get; set; }
 	    public string StreetName { get; set; }
 	    public string PostalCode { get; set; }
     }

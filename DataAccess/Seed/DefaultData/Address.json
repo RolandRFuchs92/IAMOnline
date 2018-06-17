@@ -1,0 +1,68 @@
+[
+	{
+		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressProvinceId": 5,
+		"AddressStreetId": 1
+	},
+	{
+		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressProvinceId": 10,
+		"AddressStreetId": 3
+	},
+	{
+		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressProvinceId": 4,
+		"AddressStreetId": 7
+	},
+	{
+		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressProvinceId": 9,
+		"AddressStreetId": 9
+	},
+	{
+		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressProvinceId": 4,
+		"AddressStreetId": 1
+	},
+	{
+		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressProvinceId": 4,
+		"AddressStreetId": 4
+	},
+	{
+		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressProvinceId": 3,
+		"AddressStreetId": 7
+	},
+	{
+		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressProvinceId": 7,
+		"AddressStreetId": 7
+	},
+	{
+		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressProvinceId": 4,
+		"AddressStreetId": 2
+	},
+	{
+		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressProvinceId": 3,
+		"AddressStreetId": 2
+	}
+]
+
+/*
+
+	https://next.json-generator.com/4yLrQcy-H
+
+ [
+  {
+    'repeat(10, 10)': {
+    'AddressCountryId' : '{{integer(1, 10)}',
+      'AddressProvinceId': '{{integer(1,10)}}' ,
+            'AddressStreetId': '{{integer(1,10)}}' 
+
+    }
+  }
+]
+ */

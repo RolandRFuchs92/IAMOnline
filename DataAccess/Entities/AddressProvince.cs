@@ -10,7 +10,7 @@ namespace DataAccess.Entities
     public class AddressProvince
     {
 		[Key]
-	    public int ProvinceId { get; set; }
+	    public int AddressProvinceId { get; set; }
 	    public string ProvinceName { get; set; }
     }
 }
