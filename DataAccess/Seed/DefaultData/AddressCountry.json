@@ -1,0 +1,58 @@
+[
+	{
+		"CountryName": "Chad",
+		"greeting": "Cha"
+	},
+	{
+		"CountryName": "Kuwait",
+		"greeting": "Kuw"
+	},
+	{
+		"CountryName": "Cyprus",
+		"greeting": "Cyp"
+	},
+	{
+		"CountryName": "Luxembourg",
+		"greeting": "Lux"
+	},
+	{
+		"CountryName": "Madagascar",
+		"greeting": "Mad"
+	},
+	{
+		"CountryName": "Turks and Caicos Islands",
+		"greeting": "Tur"
+	},
+	{
+		"CountryName": "Morocco",
+		"greeting": "Mor"
+	},
+	{
+		"CountryName": "Honduras",
+		"greeting": "Hon"
+	},
+	{
+		"CountryName": "Bosnia and Herzegovina",
+		"greeting": "Bos"
+	},
+	{
+		"CountryName": "Fiji",
+		"greeting": "Fij"
+	}
+]
+
+/*
+ 
+	https://next.json-generator.com/VJreW91-r
+
+[
+  {
+    'repeat(10, 10)': {
+     'CountryName':'{{country()}}',
+      greeting(tags) {
+        return this.CountryName.substr(0,3);
+      }
+    }
+  }
+]
+*/
