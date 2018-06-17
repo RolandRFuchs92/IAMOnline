@@ -16,6 +16,7 @@ namespace DataAccess.Context
 
 		public DbSet<BlogType> BlogTypes { get; set; }
 		public DbSet<BlogDetail> BlogDetails { get; set; }
+		public DbSet<AddressCountry> AddressCountries{ get; set; }
 
 	}
 }

@@ -21,16 +21,17 @@ namespace DataAccess.Seed
 	    {
 		    _db = db;
 		    _hosting = hosting;
-			_path = Path.Combine(_hosting.ContentRootPath, "Seed/DefaultData");
+			_path = Path.Combine(_hosting.ContentRootPath, "..\\DataAccess\\Seed\\DefaultData");
 		}
 
 	    public void Seed()
 	    {
 		    _db.Database.EnsureCreated();
 
-		    if (!_db.BlogDetails.Any())
+		    if (!_db.AddressCountries.Any())
 		    {
-				_db.BlogDetails.AddRange(GetData<BlogDetail>("BlogDetail.json"));
+				_db.AddressCountries.AddRange(GetData<AddressCountry>("AddressCountry.json"));
+			    _db.SaveChanges();
 		    }
 	    }
 

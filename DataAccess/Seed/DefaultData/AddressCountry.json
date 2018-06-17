@@ -1,43 +1,43 @@
 [
 	{
 		"CountryName": "Chad",
-		"greeting": "Cha"
+		"CountryCode": "Cha"
 	},
 	{
 		"CountryName": "Kuwait",
-		"greeting": "Kuw"
+		"CountryCode": "Kuw"
 	},
 	{
 		"CountryName": "Cyprus",
-		"greeting": "Cyp"
+		"CountryCode": "Cyp"
 	},
 	{
 		"CountryName": "Luxembourg",
-		"greeting": "Lux"
+		"CountryCode": "Lux"
 	},
 	{
 		"CountryName": "Madagascar",
-		"greeting": "Mad"
+		"CountryCode": "Mad"
 	},
 	{
 		"CountryName": "Turks and Caicos Islands",
-		"greeting": "Tur"
+		"CountryCode": "Tur"
 	},
 	{
 		"CountryName": "Morocco",
-		"greeting": "Mor"
+		"CountryCode": "Mor"
 	},
 	{
 		"CountryName": "Honduras",
-		"greeting": "Hon"
+		"CountryCode": "Hon"
 	},
 	{
 		"CountryName": "Bosnia and Herzegovina",
-		"greeting": "Bos"
+		"CountryCode": "Bos"
 	},
 	{
 		"CountryName": "Fiji",
-		"greeting": "Fij"
+		"CountryCode": "Fij"
 	}
 ]
 
@@ -49,7 +49,7 @@
   {
     'repeat(10, 10)': {
      'CountryName':'{{country()}}',
-      greeting(tags) {
+      CountryCode(tags) {
         return this.CountryName.substr(0,3);
       }
     }

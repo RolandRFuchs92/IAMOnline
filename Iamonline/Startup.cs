@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DataAccess.Context;
+using DataAccess.Seed;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -29,6 +30,10 @@ namespace Iamonline
 		        {
 			        cfg.UseSqlServer(_config.GetConnectionString("SiteDb"),b => b.MigrationsAssembly("DataAccess"));
 		        });
+
+	        services.AddTransient<SiteDbSeeder>();
+			services.AddScoped<>()>()
+	        services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,11 +43,29 @@ namespace Iamonline
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.Run(async (context) =>
+            else
             {
-                await context.Response.WriteAsync("Hello World!");
-            });
+	            app.UseExceptionHandler("/error");
+            }
+
+	        app.UseStaticFiles();
+	        app.UseMvc(cfg =>
+	        {
+		        cfg.MapRoute("Default",
+			        "{controller}/{action}/{id?}",
+			        new {controller = "App", Action = "Index"});
+	        });
+
+	        if (env.IsDevelopment())
+	        {
+				//Seed The database
+				using (var scope = app.ApplicationServices.CreateScope())
+				{
+					var seeder = scope.ServiceProvider.GetService<SiteDbSeeder>();
+					seeder.Seed();
+				}
+	        }
+
         }
     }
 }
