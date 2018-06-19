@@ -10,7 +10,7 @@ namespace DataAccess
 		public SiteDb CreateDbContext(string[] args)
 		{
 			var optionsBuilder = new DbContextOptionsBuilder<SiteDb>();
-			optionsBuilder.UseSqlServer("server=MSI\\SQLEXPRESS;Database=SiteDb;Integrated Security=true;MultipleActiveResultSets=true;");
+			optionsBuilder.UseSqlServer("server=(localdb)\\MSSQLLocalDB;Database=SiteDb;Integrated Security=true;MultipleActiveResultSets=true;");
 
 			return new SiteDb(optionsBuilder.Options);
 		}

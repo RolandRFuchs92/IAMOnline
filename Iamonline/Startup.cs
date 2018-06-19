@@ -15,60 +15,60 @@ using Newtonsoft.Json;
 
 namespace Iamonline
 {
-    public class Startup
-    {
-	    private readonly IConfiguration _config;
+		public class Startup
+		{
+				private readonly IConfiguration _config;
 
-	    public Startup(IConfiguration config)
-	    {
-		    _config = config;
-	    }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services)
-        {
-	        services.AddDbContext<SiteDb>(cfg =>
-		        {
-			        cfg.UseSqlServer(_config.GetConnectionString("SiteDb"),b => b.MigrationsAssembly("DataAccess"));
-		        });
-
-	        services.AddTransient<SiteDbSeeder>();
-	        services.AddScoped<ISiteDbRepository, SiteDbRepository>();
-	        services.AddMvc()
-		        .AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-	            app.UseExceptionHandler("/error");
-            }
-
-	        app.UseStaticFiles();
-	        app.UseMvc(cfg =>
-	        {
-		        cfg.MapRoute("Default",
-			        "{controller}/{action}/{id?}",
-			        new {controller = "App", Action = "Index"});
-	        });
-
-	        if (env.IsDevelopment())
-	        {
-				//Seed The database
-				using (var scope = app.ApplicationServices.CreateScope())
+				public Startup(IConfiguration config)
 				{
-					var seeder = scope.ServiceProvider.GetService<SiteDbSeeder>();
-					seeder.Seed();
+						_config = config;
 				}
-	        }
 
-        }
-    }
+				// This method gets called by the runtime. Use this method to add services to the container.
+				// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+				public void ConfigureServices(IServiceCollection services)
+				{
+						services.AddDbContext<SiteDb>(cfg =>
+							{
+									cfg.UseSqlServer(_config.GetConnectionString("SiteDb"), b => b.MigrationsAssembly("DataAccess"));
+							});
+
+						services.AddTransient<SiteDbSeeder>();
+						services.AddScoped<ISiteDbRepository, SiteDbRepository>();
+						services.AddMvc()
+							.AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+				}
+
+				// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+				public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+				{
+						if (env.IsDevelopment())
+						{
+								app.UseDeveloperExceptionPage();
+						}
+						else
+						{
+								app.UseExceptionHandler("/error");
+						}
+
+						app.UseStaticFiles();
+						app.UseMvc(cfg =>
+						{
+								cfg.MapRoute("Default",
+								"{controller}/{action}/{id?}",
+								new { controller = "App", Action = "Index" });
+						});
+
+						if (env.IsDevelopment())
+						{
+								//Seed The database
+								using (var scope = app.ApplicationServices.CreateScope())
+								{
+										var seeder = scope.ServiceProvider.GetService<SiteDbSeeder>();
+										seeder.Seed();
+								}
+						}
+
+				}
+		}
 }

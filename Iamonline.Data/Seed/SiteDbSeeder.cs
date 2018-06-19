@@ -25,35 +25,32 @@ namespace DataAccess.Seed
 				{
 						_db = db;
 						_hosting = hosting;
-						_path = Path.Combine(_hosting.ContentRootPath, "..\\DataAccess\\Seed\\DefaultData");
+						_path = Path.Combine(_hosting.ContentRootPath, "..\\Iamonline.Data\\Seed\\DefaultData");
 				}
 
 				public void Seed()
 				{
 						_db.Database.EnsureCreated();
 
-						if (!_db.AddressCountries.Any())
-						{
-								//Address
-								_db.AddressCountries.AddRange(GetData<AddressCountry>("AddressCountry.json"));
-								_db.AddressProvinces.AddRange(GetData<AddressProvince>("AddressProvince.json"));
-								_db.AddressStreets.AddRange(GetData<AddressStreet>("AddressStreets"));
-								_db.Addresses.AddRange(GetData<Address>("Address.json"));
+						//Address
+						_db.AddressCountries.AddRange(GetData<AddressCountry>("AddressCountry.json"));
+						_db.AddressProvinces.AddRange(GetData<AddressProvince>("AddressProvince.json"));
+						_db.AddressStreets.AddRange(GetData<AddressStreet>("AddressStreet.json"));
+						_db.Addresses.AddRange(GetData<Address>("Address.json"));
 
-								//Blog
-								_db.BlogDetails.AddRange(GetData<BlogDetail>("BlogDetail.json"));
-								_db.BlogTypes.AddRange(GetData<BlogType>("BlogType.json"));
-								_db.CoreBlogs.AddRange(GetData<CoreBlog>("CoreBlog.json"));
+						//Blog
+						_db.BlogDetails.AddRange(GetData<BlogDetail>("BlogDetail.json"));
+						_db.BlogTypes.AddRange(GetData<BlogType>("BlogType.json"));
+						_db.CoreBlogs.AddRange(GetData<CoreBlog>("CoreBlog.json"));
 
-								//Person
-								_db.Persons.AddRange(GetData<Person>("Person.json"));
+						//Person
+						_db.Persons.AddRange(GetData<Person>("Person.json"));
 
-								//CoreMembers
-								_db.CoreMembers.AddRange(GetData<CoreMember>("CoreMember.json"));
+						//CoreMembers
+						_db.CoreMembers.AddRange(GetData<CoreMember>("CoreMember.json"));
 
+						_db.SaveChanges();
 
-								_db.SaveChanges();
-						}
 				}
 
 				private IEnumerable<T> GetData<T>(string fileName)
