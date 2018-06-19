@@ -5,82 +5,63 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using DataAccess.Context;
-using DataAccess.Entities;
+using Iamonline.Data.Context;
+using Iamonline.Data.Entities;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Iamonline.Data.Seed.Utilities;
 
-namespace DataAccess.Seed
+namespace Iamonline.Data.Seed
 {
-		public class SiteDbSeeder
+	public class SiteDbSeeder
+	{
+		private readonly SiteDb _db;
+		private readonly IHostingEnvironment _hosting;
+		private readonly string _path;
+		public static readonly MethodInfo _dbSetMethod = typeof(DbContext).GetMethods().Single(m => m.Name == "Set" && m.IsGenericMethod);
+		private readonly GetData _getData;
+
+		public SiteDbSeeder(SiteDb db, IHostingEnvironment hosting)
 		{
-				private readonly SiteDb _db;
-				private readonly IHostingEnvironment _hosting;
-				private readonly string _path;
-				public static readonly MethodInfo _dbSetMethod = typeof(DbContext).GetMethods().Single(m => m.Name == "Set" && m.IsGenericMethod);
-
-
-				public SiteDbSeeder(SiteDb db, IHostingEnvironment hosting)
-				{
-						_db = db;
-						_hosting = hosting;
-						_path = Path.Combine(_hosting.ContentRootPath, "..\\Iamonline.Data\\Seed\\DefaultData");
-				}
-
-				public void Seed()
-				{
-						_db.Database.EnsureCreated();
-
-						//Address
-						_db.AddressCountries.AddRange(GetData<AddressCountry>("AddressCountry.json"));
-						_db.AddressProvinces.AddRange(GetData<AddressProvince>("AddressProvince.json"));
-						_db.AddressStreets.AddRange(GetData<AddressStreet>("AddressStreet.json"));
-						_db.Addresses.AddRange(GetData<Address>("Address.json"));
-
-						//Blog
-						_db.BlogDetails.AddRange(GetData<BlogDetail>("BlogDetail.json"));
-						_db.BlogTypes.AddRange(GetData<BlogType>("BlogType.json"));
-						_db.CoreBlogs.AddRange(GetData<CoreBlog>("CoreBlog.json"));
-
-						//Person
-						_db.Persons.AddRange(GetData<Person>("Person.json"));
-
-						//CoreMembers
-						_db.CoreMembers.AddRange(GetData<CoreMember>("CoreMember.json"));
-
-						_db.SaveChanges();
-
-				}
-
-				private IEnumerable<T> GetData<T>(string fileName)
-				{
-						if (IsPopulatedDbSet<T>()) return null;
-
-						var dataPath = GetRawDataPath(fileName);
-						var rawDataString = GetRawStringData(dataPath);
-						return GetSerializedJsonObject<T>(rawDataString);
-				}
-
-				private bool IsPopulatedDbSet<T>()
-				{
-						return ((IQueryable<T>)_dbSetMethod.MakeGenericMethod(typeof(T)).Invoke(_db, Array.Empty<object>())).Any();
-				}
-
-				private string GetRawDataPath(string fileName)
-				{
-						return Path.Combine(_path, fileName);
-				}
-
-				private string GetRawStringData(string dataPath)
-				{
-						return File.ReadAllText(dataPath);
-				}
-
-				private IEnumerable<T> GetSerializedJsonObject<T>(string rawStringData)
-				{
-						return JsonConvert.DeserializeObject<IEnumerable<T>>(rawStringData);
-				}
-
+			_db = db;
+			_hosting = hosting;
+			_path = Path.Combine(_hosting.ContentRootPath, "..\\Iamonline.Data\\Seed\\DefaultData");
+			_getData = new GetData(_db, _hosting);
 		}
+
+		public void SeedDummyData()
+		{
+			//Address
+			_db.AddressCountries.AddRange(_getData.GetEntities<AddressCountry>("AddressCountry.json"));
+			_db.AddressProvinces.AddRange(_getData.GetEntities<AddressProvince>("AddressProvince.json"));
+			_db.AddressStreets.AddRange(_getData.GetEntities<AddressStreet>("AddressStreet.json"));
+			_db.Addresses.AddRange(_getData.GetEntities<Address>("Address.json"));
+
+			//Person
+			_db.Persons.AddRange(_getData.GetEntities<Person>("Person.json"));
+
+			//Client
+			_db.Clients.AddRange(_getData.GetEntities<Client>("Client.json"));
+
+			//CoreMembers > FK PersonId and ClientId
+			_db.CoreMembers.AddRange(_getData.GetEntities<CoreMember>("CoreMember.json"));
+
+			//Blog
+			_db.BlogDetails.AddRange(_getData.GetEntities<BlogDetail>("BlogDetail.json"));
+			_db.CoreBlogs.AddRange(_getData.GetEntities<CoreBlog>("CoreBlog.json"));
+		}
+
+		public void SeedPersistedData()
+		{
+			_db.Database.EnsureCreated();
+
+			//BlogTypes > these are persisted values
+			_db.BlogTypes.AddRange(_getData.GetEntities<BlogType>("BlogType.json"));
+			_db.SaveChanges();
+		}
+
+		
+
+	}
 }

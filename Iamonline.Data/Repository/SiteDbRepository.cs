@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using DataAccess.Context;
-using DataAccess.Entities;
-using Microsoft.EntityFrameworkCore;
+using Iamonline.Data.Context;
+using Iamonline.Data.Entities;
 using Microsoft.Extensions.Logging;
 
-namespace DataAccess.Repository
+namespace Iamonline.Data.Repository
 {
     public class SiteDbRepository  //<T> where T : class
 	    : ISiteDbRepository

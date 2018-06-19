@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
-namespace DataAccess.Entities
+namespace Iamonline.Data.Entities
 {
     public class CoreBlog
     {

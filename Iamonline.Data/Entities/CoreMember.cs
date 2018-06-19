@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace DataAccess.Entities
+namespace Iamonline.Data.Entities
 {
     public class CoreMember
     {
 		[Key]
 	    public int CoreMemberId { get; set; }
 	    public Person Person { get; set; }
+		public Client Client { get; set; }
     }
 }

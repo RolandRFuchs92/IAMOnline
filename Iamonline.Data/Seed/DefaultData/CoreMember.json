@@ -1,87 +1,42 @@
-﻿[
-	{
-		"ClientName": "Pathways",
-		"Address": 2,
-		"CreatedOn": "12 Oct 2014",
-		"IsActive": true,
-		"CoreMemberId": [
-			{
-				"CoreMemberId": 4
-			},
-			{
-				"CoreMemberId": 3
-			},
-			{
-				"CoreMemberId": 4
-			}
-		]
+[
+	{ 
+		"PersonId": 1,
+		"ClientId": 1
 	},
-	{
-		"ClientName": "Dognost",
-		"Address": 6,
-		"CreatedOn": "08 Aug 2017",
-		"IsActive": true,
-		"CoreMemberId": [
-			{
-				"CoreMemberId": 4
-			},
-			{
-				"CoreMemberId": 4
-			},
-			{
-				"CoreMemberId": 9
-			}
-		]
+	{ 
+		"PersonId": 2,
+		"ClientId": 1
 	},
-	{
-		"ClientName": "Quantalia",
-		"Address": 10,
-		"CreatedOn": "05 Mar 2015",
-		"IsActive": true,
-		"CoreMemberId": [
-			{
-				"CoreMemberId": 6
-			},
-			{
-				"CoreMemberId": 7
-			},
-			{
-				"CoreMemberId": 9
-			}
-		]
+	{ 
+		"PersonId": 3,
+		"ClientId": 2
 	},
-	{
-		"ClientName": "Ersum",
-		"Address": 5,
-		"CreatedOn": "19 Jul 2014",
-		"IsActive": false,
-		"CoreMemberId": [
-			{
-				"CoreMemberId": 4
-			},
-			{
-				"CoreMemberId": 6
-			},
-			{
-				"CoreMemberId": 4
-			}
-		]
+	{ 
+		"PersonId": 4,
+		"ClientId": 2
 	},
-	{
-		"ClientName": "Comvene",
-		"Address": 9,
-		"CreatedOn": "14 Nov 2014",
-		"IsActive": true,
-		"CoreMemberId": [
-			{
-				"CoreMemberId": 2
-			},
-			{
-				"CoreMemberId": 1
-			},
-			{
-				"CoreMemberId": 5
-			}
-		]
+	{ 
+		"PersonId": 5,
+		"ClientId": 3
+	},
+	{ 
+		"PersonId": 6,
+		"ClientId": 3
+	},
+	{ 
+		"PersonId": 7,
+		"ClientId": 4
+	},
+	{ 
+		"PersonId": 8,
+		"ClientId": 4
+	},
+	{ 
+		"PersonId": 9,
+		"ClientId": 5
+	},
+	{ 
+		"PersonId": 10,
+		"ClientId": 5
 	}
 ]

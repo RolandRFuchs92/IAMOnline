@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DataAccess.Entities
+namespace Iamonline.Data.Entities
 {
 	public class BlogType
 	{

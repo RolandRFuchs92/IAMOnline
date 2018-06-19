@@ -1,51 +1,51 @@
 [
 	{
-		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressCountryId": 1,
 		"AddressProvinceId": 5,
 		"AddressStreetId": 1
 	},
 	{
-		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressCountryId":  2,
 		"AddressProvinceId": 10,
 		"AddressStreetId": 3
 	},
 	{
-		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressCountryId": 3,
 		"AddressProvinceId": 4,
 		"AddressStreetId": 7
 	},
 	{
-		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressCountryId": 4,
 		"AddressProvinceId": 9,
 		"AddressStreetId": 9
 	},
 	{
-		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressCountryId": 5,
 		"AddressProvinceId": 4,
 		"AddressStreetId": 1
 	},
 	{
-		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressCountryId": 4,
 		"AddressProvinceId": 4,
 		"AddressStreetId": 4
 	},
 	{
-		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressCountryId": 3,
 		"AddressProvinceId": 3,
 		"AddressStreetId": 7
 	},
 	{
-		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressCountryId": 2,
 		"AddressProvinceId": 7,
 		"AddressStreetId": 7
 	},
 	{
-		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressCountryId": 2,
 		"AddressProvinceId": 4,
 		"AddressStreetId": 2
 	},
 	{
-		"AddressCountryId": "{{integer(1, 10)}",
+		"AddressCountryId": 1,
 		"AddressProvinceId": 3,
 		"AddressStreetId": 2
 	}

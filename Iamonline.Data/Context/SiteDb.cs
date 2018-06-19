@@ -1,12 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataAccess.Entities;
+﻿using Iamonline.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.Context
+namespace Iamonline.Data.Context
 {
 		public class SiteDb : DbContext
 		{

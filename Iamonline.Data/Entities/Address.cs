@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-using Microsoft.EntityFrameworkCore.Migrations.Operations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace DataAccess.Entities
+namespace Iamonline.Data.Entities
 {
     public class Address
     {

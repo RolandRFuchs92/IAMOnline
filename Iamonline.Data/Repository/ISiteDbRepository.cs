@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using DataAccess.Entities;
+using Iamonline.Data.Entities;
 
-namespace DataAccess.Repository
+namespace Iamonline.Data.Repository
 {
 	public interface ISiteDbRepository
 	{

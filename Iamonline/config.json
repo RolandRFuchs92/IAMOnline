@@ -1,6 +1,6 @@
 {
 	"connectionStrings": {
-		"SiteDb": "server=(localdb)\\MSSQLLocalDB;Database=SiteDb;Integrated Security=true;MultipleActiveResultSets=true;"
+		"SiteDb": "server=MSI\\SQLEXPRESS;Database=SiteDb;Integrated Security=true;MultipleActiveResultSets=true;"
 	},
 	"Logging": {
 		"LogLevel": {
