@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BusinessLogic
+namespace Iamonline.BusinessLogic
 {
     public class Class1
     {
