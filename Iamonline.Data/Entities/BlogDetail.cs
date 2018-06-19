@@ -16,6 +16,7 @@ namespace Iamonline.Data.Entities
 		public string BlogRemarks { get; set; }
 		public string BlogClosingCaption { get; set; }
 		public DateTime BlogStartingDate { get; set; }
+		public int BlogTypeId { get; set; }
 		public BlogType BlogType { get; set; }
 	}
 	/*

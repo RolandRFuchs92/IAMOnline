@@ -41,7 +41,7 @@ namespace Iamonline.Data.Seed.Utilities
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
 		/// <returns></returns>
-	    private IQueryable<T> GetQueriableOfType<T>()
+	    public IQueryable<T> GetQueriableOfType<T>()
 	    {
 		    return (IQueryable<T>)_dbSetMethod.MakeGenericMethod(typeof(T)).Invoke(_db, Array.Empty<object>());
 	    }

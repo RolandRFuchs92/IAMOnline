@@ -7,10 +7,12 @@ namespace Iamonline.Data.Entities
     {
 	    public int ClientId { get; set; }
 	    public string ClientName { get; set; }
-	    public Address Address { get; set; }
+	    public int AddressId { get; set; }
 	    public DateTime CreatedOn { get; set; }
 	    public bool IsActive { get; set; }
 
-		public ICollection<CoreMember> CoreMembers { get; set; }
+	    public Address Address { get; set; }
+
+	    public ICollection<CoreMember> CoreMembers { get; set; }
     }
 }

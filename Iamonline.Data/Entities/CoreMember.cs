@@ -6,6 +6,10 @@ namespace Iamonline.Data.Entities
     {
 		[Key]
 	    public int CoreMemberId { get; set; }
+
+	    public int PersonId { get; set; }
+	    public int ClientId { get; set; }
+
 	    public Person Person { get; set; }
 		public Client Client { get; set; }
     }
