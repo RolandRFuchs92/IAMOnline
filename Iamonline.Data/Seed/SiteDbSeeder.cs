@@ -36,7 +36,10 @@ namespace Iamonline.Data.Seed
 			_db.AddressCountries.AddRange(_getData.GetEntities<AddressCountry>("AddressCountry.json"));
 			_db.AddressProvinces.AddRange(_getData.GetEntities<AddressProvince>("AddressProvince.json"));
 			_db.AddressStreets.AddRange(_getData.GetEntities<AddressStreet>("AddressStreet.json"));
+			_db.SaveChanges();
+
 			_db.Addresses.AddRange(_getData.GetEntities<Address>("Address.json"));
+			_db.SaveChanges();
 
 			//Person
 			_db.Persons.AddRange(_getData.GetEntities<Person>("Person.json"));
@@ -50,6 +53,8 @@ namespace Iamonline.Data.Seed
 			//Blog
 			_db.BlogDetails.AddRange(_getData.GetEntities<BlogDetail>("BlogDetail.json"));
 			_db.CoreBlogs.AddRange(_getData.GetEntities<CoreBlog>("CoreBlog.json"));
+
+			_db.SaveChanges();
 		}
 
 		public void SeedPersistedData()

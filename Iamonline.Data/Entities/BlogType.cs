@@ -4,8 +4,9 @@ namespace Iamonline.Data.Entities
 {
 	public class BlogType
 	{
-		[Key]
 		public int BlogTypeId { get; set; }
 		public string BlogName { get; set; }
+
+		public BlogDetail BlogDetail { get; set; }
 	}
 }

@@ -5,7 +5,6 @@ namespace Iamonline.Data.Entities
 {
     public class CoreBlog
     {
-		[Key]
 		public int CoreBlogId { get; set; }
 	    public int BlogDetailId { get; set; }
 		public int CoreMemberId { get; set; }

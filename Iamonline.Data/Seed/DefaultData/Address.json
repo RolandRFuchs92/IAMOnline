@@ -6,7 +6,7 @@
 	},
 	{
 		"AddressCountryId":  2,
-		"AddressProvinceId": 10,
+		"AddressProvinceId": 9,
 		"AddressStreetId": 3
 	},
 	{
@@ -16,7 +16,7 @@
 	},
 	{
 		"AddressCountryId": 4,
-		"AddressProvinceId": 9,
+		"AddressProvinceId": 8,
 		"AddressStreetId": 9
 	},
 	{

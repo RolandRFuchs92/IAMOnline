@@ -4,7 +4,6 @@ namespace Iamonline.Data.Entities
 {
     public class Person
     {
-		[Key]
 	    public int PersonId { get; set; }
 	    public string PersonName { get; set; }
 	    public string PersonSurname { get; set; }
@@ -16,5 +15,6 @@ namespace Iamonline.Data.Entities
 	    public int AddressId { get; set; }
 
 	    public Address Address { get; set; }
+	    public CoreMember CoreMember { get; set; }
     }
 }

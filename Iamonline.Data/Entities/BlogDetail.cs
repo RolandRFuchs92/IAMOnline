@@ -5,7 +5,6 @@ namespace Iamonline.Data.Entities
 {
 	public class BlogDetail
 	{
-		[Key]
 		public int BlogDetailId { get; set; }
 		public string BlogImagePath { get; set; }
 		public string BlogTitle { get; set; }
@@ -17,7 +16,9 @@ namespace Iamonline.Data.Entities
 		public string BlogClosingCaption { get; set; }
 		public DateTime BlogStartingDate { get; set; }
 		public int BlogTypeId { get; set; }
+
 		public BlogType BlogType { get; set; }
+		public CoreBlog CoreBlog { get; set; }
 	}
 	/*
 	https://next.json-generator.com/
