@@ -14,5 +14,6 @@ namespace Iamonline.Data.Entities
 		public AddressCountry AddressCountry { get; set; }
 		public AddressProvince AddressProvince { get; set; }
 		public AddressStreet AddressStreet { get; set; }
+	    public Person Person { get; set; }
 	}
 }
