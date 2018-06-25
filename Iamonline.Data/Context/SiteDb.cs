@@ -1,4 +1,5 @@
-﻿using Iamonline.Data.Entities;
+﻿using System.Linq;
+using Iamonline.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Iamonline.Data.Context
@@ -19,5 +20,15 @@ namespace Iamonline.Data.Context
 				public DbSet<CoreBlog> CoreBlogs { get; set; }
 				public DbSet<CoreMember> CoreMembers { get; set; }
 				public DbSet<Person> Persons { get; set; }
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+			{
+				relationship.DeleteBehavior = DeleteBehavior.Restrict;
+			}
+
 		}
+
+	}
 }

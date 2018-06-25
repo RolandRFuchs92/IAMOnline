@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Iamonline.Data.Entities
 {
@@ -8,7 +9,9 @@ namespace Iamonline.Data.Entities
 	    public int PersonId { get; set; }
 	    public int ClientId { get; set; }
 
+		[ForeignKey("PersonId")]
 	    public Person Person { get; set; }
+		[ForeignKey("ClientId")]
 		public Client Client { get; set; }
     }
 }

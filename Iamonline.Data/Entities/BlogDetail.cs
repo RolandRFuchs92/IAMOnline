@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Iamonline.Data.Entities
 {
@@ -17,6 +18,7 @@ namespace Iamonline.Data.Entities
 		public DateTime BlogStartingDate { get; set; }
 		public int BlogTypeId { get; set; }
 
+		[ForeignKey("BlogTypeID")]
 		public BlogType BlogType { get; set; }
 		public CoreBlog CoreBlog { get; set; }
 	}

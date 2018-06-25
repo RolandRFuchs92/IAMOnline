@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Iamonline.Data.Entities
 {
@@ -12,8 +13,8 @@ namespace Iamonline.Data.Entities
 	    public DateTime CreatedOn { get; set; }
 	    public bool IsActive { get; set; }
 
+		[ForeignKey("AddressId")]
 	    public Address Address { get; set; }
-
 	    public ICollection<CoreMember> CoreMembers { get; set; }
     }
 }

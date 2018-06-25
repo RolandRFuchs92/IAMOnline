@@ -4,14 +4,16 @@ using Iamonline.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Iamonline.Data.Migrations
 {
     [DbContext(typeof(SiteDb))]
-    partial class SiteDbModelSnapshot : ModelSnapshot
+    [Migration("20180625201153_RemovedEntityRefFromPersonWithRegardsToAddress")]
+    partial class RemovedEntityRefFromPersonWithRegardsToAddress
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

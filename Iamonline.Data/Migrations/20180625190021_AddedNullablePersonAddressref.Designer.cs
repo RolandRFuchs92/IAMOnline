@@ -4,14 +4,16 @@ using Iamonline.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Iamonline.Data.Migrations
 {
     [DbContext(typeof(SiteDb))]
-    partial class SiteDbModelSnapshot : ModelSnapshot
+    [Migration("20180625190021_AddedNullablePersonAddressref")]
+    partial class AddedNullablePersonAddressref
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -230,6 +232,8 @@ namespace Iamonline.Data.Migrations
 
                     b.HasKey("PersonId");
 
+                    b.HasIndex("AddressId");
+
                     b.ToTable("Persons");
                 });
 
@@ -290,6 +294,14 @@ namespace Iamonline.Data.Migrations
                     b.HasOne("Iamonline.Data.Entities.Person", "Person")
                         .WithOne("CoreMember")
                         .HasForeignKey("Iamonline.Data.Entities.CoreMember", "PersonId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("Iamonline.Data.Entities.Person", b =>
+                {
+                    b.HasOne("Iamonline.Data.Entities.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618

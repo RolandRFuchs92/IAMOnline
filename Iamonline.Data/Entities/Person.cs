@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Iamonline.Data.Entities
 {
@@ -12,9 +13,8 @@ namespace Iamonline.Data.Entities
 	    public string PersonMobile { get; set; }
 	    public string PersonHome { get; set; }
 	    public string PersonWork { get; set; }
-	    public int AddressId { get; set; }
+	    public int? AddressId { get; set; }
 
-	    public Address Address { get; set; }
 	    public CoreMember CoreMember { get; set; }
     }
 }

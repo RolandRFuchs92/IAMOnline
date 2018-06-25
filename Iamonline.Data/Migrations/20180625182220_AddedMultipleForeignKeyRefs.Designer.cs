@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Iamonline.Data.Migrations
 {
     [DbContext(typeof(SiteDb))]
-    [Migration("20180619203235_RemovedAddressFk")]
-    partial class RemovedAddressFk
+    [Migration("20180625182220_AddedMultipleForeignKeyRefs")]
+    partial class AddedMultipleForeignKeyRefs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -112,13 +112,15 @@ namespace Iamonline.Data.Migrations
 
                     b.Property<string>("BlogTitle");
 
+                    b.Property<int>("BlogTypeID");
+
                     b.Property<int>("BlogTypeId");
 
                     b.Property<DateTime>("BlogWrittenOn");
 
                     b.HasKey("BlogDetailId");
 
-                    b.HasIndex("BlogTypeId")
+                    b.HasIndex("BlogTypeID")
                         .IsUnique();
 
                     b.ToTable("BlogDetails");
@@ -164,6 +166,8 @@ namespace Iamonline.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("BlodDetailId");
+
                     b.Property<int>("BlogDetailId");
 
                     b.Property<int>("CoreMemberId");
@@ -176,7 +180,7 @@ namespace Iamonline.Data.Migrations
 
                     b.HasKey("CoreBlogId");
 
-                    b.HasIndex("BlogDetailId")
+                    b.HasIndex("BlodDetailId")
                         .IsUnique();
 
                     b.HasIndex("CoreMemberId");
@@ -255,7 +259,7 @@ namespace Iamonline.Data.Migrations
                 {
                     b.HasOne("Iamonline.Data.Entities.BlogType", "BlogType")
                         .WithOne("BlogDetail")
-                        .HasForeignKey("Iamonline.Data.Entities.BlogDetail", "BlogTypeId")
+                        .HasForeignKey("Iamonline.Data.Entities.BlogDetail", "BlogTypeID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -271,7 +275,7 @@ namespace Iamonline.Data.Migrations
                 {
                     b.HasOne("Iamonline.Data.Entities.BlogDetail", "BlogDetail")
                         .WithOne("CoreBlog")
-                        .HasForeignKey("Iamonline.Data.Entities.CoreBlog", "BlogDetailId")
+                        .HasForeignKey("Iamonline.Data.Entities.CoreBlog", "BlodDetailId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Iamonline.Data.Entities.CoreMember", "CoreMember")
