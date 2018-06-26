@@ -1,12 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Iamonline.Data.Entities
 {
 	public class BlogType
 	{
+		[Key]
 		public int BlogTypeId { get; set; }
 		public string BlogName { get; set; }
 
-		public BlogDetail BlogDetail { get; set; }
+		public List<BlogDetail> BlogDetail { get; set; }
 	}
 }

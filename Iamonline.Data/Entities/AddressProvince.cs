@@ -6,9 +6,10 @@ namespace Iamonline.Data.Entities
 {
     public class AddressProvince
     {
+		[Key]
 	    public int AddressProvinceId { get; set; }
 	    public string ProvinceName { get; set; }
 
-	    public Address Address { get; set; }
+	    public List<Address> Address { get; set; }
     }
 }

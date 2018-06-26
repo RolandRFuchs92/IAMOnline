@@ -6,10 +6,11 @@ namespace Iamonline.Data.Entities
 {
     public class AddressStreet
     {
+		[Key]
 	    public int AddressStreetId { get; set; }
 	    public string StreetName { get; set; }
 	    public string PostalCode { get; set; }
 
-	    public Address Address { get; set; }
+	    public List<Address> Address { get; set; }
     }
 }

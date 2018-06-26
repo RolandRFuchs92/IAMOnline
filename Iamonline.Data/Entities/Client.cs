@@ -7,6 +7,7 @@ namespace Iamonline.Data.Entities
 {
     public class Client
     {
+		[Key]
 	    public int ClientId { get; set; }
 	    public string ClientName { get; set; }
 	    public int AddressId { get; set; }
@@ -15,6 +16,7 @@ namespace Iamonline.Data.Entities
 
 		[ForeignKey("AddressId")]
 	    public Address Address { get; set; }
-	    public ICollection<CoreMember> CoreMembers { get; set; }
+		[ForeignKey("ClientId")]
+	    public List<CoreMember> CoreMembers { get; set; }
     }
 }

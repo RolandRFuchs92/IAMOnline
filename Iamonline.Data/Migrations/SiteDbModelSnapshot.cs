@@ -33,14 +33,11 @@ namespace Iamonline.Data.Migrations
 
                     b.HasKey("AddressId");
 
-                    b.HasIndex("AddressCountryId")
-                        .IsUnique();
+                    b.HasIndex("AddressCountryId");
 
-                    b.HasIndex("AddressProvinceId")
-                        .IsUnique();
+                    b.HasIndex("AddressProvinceId");
 
-                    b.HasIndex("AddressStreetId")
-                        .IsUnique();
+                    b.HasIndex("AddressStreetId");
 
                     b.ToTable("Addresses");
                 });
@@ -110,16 +107,13 @@ namespace Iamonline.Data.Migrations
 
                     b.Property<string>("BlogTitle");
 
-                    b.Property<int>("BlogTypeID");
-
                     b.Property<int>("BlogTypeId");
 
                     b.Property<DateTime>("BlogWrittenOn");
 
                     b.HasKey("BlogDetailId");
 
-                    b.HasIndex("BlogTypeID")
-                        .IsUnique();
+                    b.HasIndex("BlogTypeId");
 
                     b.ToTable("BlogDetails");
                 });
@@ -181,16 +175,12 @@ namespace Iamonline.Data.Migrations
                     b.HasIndex("BlodDetailId")
                         .IsUnique();
 
-                    b.HasIndex("CoreMemberId");
-
                     b.ToTable("CoreBlogs");
                 });
 
             modelBuilder.Entity("Iamonline.Data.Entities.CoreMember", b =>
                 {
-                    b.Property<int>("CoreMemberId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("CoreMemberId");
 
                     b.Property<int>("ClientId");
 
@@ -236,27 +226,27 @@ namespace Iamonline.Data.Migrations
             modelBuilder.Entity("Iamonline.Data.Entities.Address", b =>
                 {
                     b.HasOne("Iamonline.Data.Entities.AddressCountry", "AddressCountry")
-                        .WithOne("Address")
-                        .HasForeignKey("Iamonline.Data.Entities.Address", "AddressCountryId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .WithMany("Address")
+                        .HasForeignKey("AddressCountryId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Iamonline.Data.Entities.AddressProvince", "AddressProvince")
-                        .WithOne("Address")
-                        .HasForeignKey("Iamonline.Data.Entities.Address", "AddressProvinceId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .WithMany("Address")
+                        .HasForeignKey("AddressProvinceId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Iamonline.Data.Entities.AddressStreet", "AddressStreet")
-                        .WithOne("Address")
-                        .HasForeignKey("Iamonline.Data.Entities.Address", "AddressStreetId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .WithMany("Address")
+                        .HasForeignKey("AddressStreetId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Iamonline.Data.Entities.BlogDetail", b =>
                 {
                     b.HasOne("Iamonline.Data.Entities.BlogType", "BlogType")
-                        .WithOne("BlogDetail")
-                        .HasForeignKey("Iamonline.Data.Entities.BlogDetail", "BlogTypeID")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .WithMany("BlogDetail")
+                        .HasForeignKey("BlogTypeId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Iamonline.Data.Entities.Client", b =>
@@ -264,7 +254,7 @@ namespace Iamonline.Data.Migrations
                     b.HasOne("Iamonline.Data.Entities.Address", "Address")
                         .WithMany()
                         .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Iamonline.Data.Entities.CoreBlog", b =>
@@ -272,12 +262,7 @@ namespace Iamonline.Data.Migrations
                     b.HasOne("Iamonline.Data.Entities.BlogDetail", "BlogDetail")
                         .WithOne("CoreBlog")
                         .HasForeignKey("Iamonline.Data.Entities.CoreBlog", "BlodDetailId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Iamonline.Data.Entities.CoreMember", "CoreMember")
-                        .WithMany()
-                        .HasForeignKey("CoreMemberId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Iamonline.Data.Entities.CoreMember", b =>
@@ -285,12 +270,17 @@ namespace Iamonline.Data.Migrations
                     b.HasOne("Iamonline.Data.Entities.Client", "Client")
                         .WithMany("CoreMembers")
                         .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Iamonline.Data.Entities.CoreBlog")
+                        .WithMany("CoreMember")
+                        .HasForeignKey("CoreMemberId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Iamonline.Data.Entities.Person", "Person")
                         .WithOne("CoreMember")
                         .HasForeignKey("Iamonline.Data.Entities.CoreMember", "PersonId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

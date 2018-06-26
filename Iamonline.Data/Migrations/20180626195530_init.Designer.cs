@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Iamonline.Data.Migrations
 {
     [DbContext(typeof(SiteDb))]
-    [Migration("20180625175939_PlayingWithAddressEntities")]
-    partial class PlayingWithAddressEntities
+    [Migration("20180626195530_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,11 +27,11 @@ namespace Iamonline.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AddressCountryId");
+                    b.Property<int>("AddressCountryId");
 
-                    b.Property<int?>("AddressProvinceId");
+                    b.Property<int>("AddressProvinceId");
 
-                    b.Property<int?>("AddressStreetId");
+                    b.Property<int>("AddressStreetId");
 
                     b.HasKey("AddressId");
 
@@ -115,8 +115,7 @@ namespace Iamonline.Data.Migrations
 
                     b.HasKey("BlogDetailId");
 
-                    b.HasIndex("BlogTypeId")
-                        .IsUnique();
+                    b.HasIndex("BlogTypeId");
 
                     b.ToTable("BlogDetails");
                 });
@@ -161,6 +160,8 @@ namespace Iamonline.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("BlodDetailId");
+
                     b.Property<int>("BlogDetailId");
 
                     b.Property<int>("CoreMemberId");
@@ -173,19 +174,15 @@ namespace Iamonline.Data.Migrations
 
                     b.HasKey("CoreBlogId");
 
-                    b.HasIndex("BlogDetailId")
+                    b.HasIndex("BlodDetailId")
                         .IsUnique();
-
-                    b.HasIndex("CoreMemberId");
 
                     b.ToTable("CoreBlogs");
                 });
 
             modelBuilder.Entity("Iamonline.Data.Entities.CoreMember", b =>
                 {
-                    b.Property<int>("CoreMemberId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("CoreMemberId");
 
                     b.Property<int>("ClientId");
 
@@ -207,7 +204,7 @@ namespace Iamonline.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AddressId");
+                    b.Property<int?>("AddressId");
 
                     b.Property<string>("PersonEmail");
 
@@ -225,8 +222,6 @@ namespace Iamonline.Data.Migrations
 
                     b.HasKey("PersonId");
 
-                    b.HasIndex("AddressId");
-
                     b.ToTable("Persons");
                 });
 
@@ -234,22 +229,25 @@ namespace Iamonline.Data.Migrations
                 {
                     b.HasOne("Iamonline.Data.Entities.AddressCountry", "AddressCountry")
                         .WithMany("Address")
-                        .HasForeignKey("AddressCountryId");
+                        .HasForeignKey("AddressCountryId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Iamonline.Data.Entities.AddressProvince", "AddressProvince")
                         .WithMany("Address")
-                        .HasForeignKey("AddressProvinceId");
+                        .HasForeignKey("AddressProvinceId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Iamonline.Data.Entities.AddressStreet", "AddressStreet")
                         .WithMany("Address")
-                        .HasForeignKey("AddressStreetId");
+                        .HasForeignKey("AddressStreetId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Iamonline.Data.Entities.BlogDetail", b =>
                 {
                     b.HasOne("Iamonline.Data.Entities.BlogType", "BlogType")
-                        .WithOne("BlogDetail")
-                        .HasForeignKey("Iamonline.Data.Entities.BlogDetail", "BlogTypeId")
+                        .WithMany("BlogDetail")
+                        .HasForeignKey("BlogTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -265,12 +263,7 @@ namespace Iamonline.Data.Migrations
                 {
                     b.HasOne("Iamonline.Data.Entities.BlogDetail", "BlogDetail")
                         .WithOne("CoreBlog")
-                        .HasForeignKey("Iamonline.Data.Entities.CoreBlog", "BlogDetailId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Iamonline.Data.Entities.CoreMember", "CoreMember")
-                        .WithMany()
-                        .HasForeignKey("CoreMemberId")
+                        .HasForeignKey("Iamonline.Data.Entities.CoreBlog", "BlodDetailId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -281,17 +274,14 @@ namespace Iamonline.Data.Migrations
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade);
 
+                    b.HasOne("Iamonline.Data.Entities.CoreBlog")
+                        .WithMany("CoreMember")
+                        .HasForeignKey("CoreMemberId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("Iamonline.Data.Entities.Person", "Person")
                         .WithOne("CoreMember")
                         .HasForeignKey("Iamonline.Data.Entities.CoreMember", "PersonId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Iamonline.Data.Entities.Person", b =>
-                {
-                    b.HasOne("Iamonline.Data.Entities.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

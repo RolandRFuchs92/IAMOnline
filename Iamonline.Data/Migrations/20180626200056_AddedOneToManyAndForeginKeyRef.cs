@@ -2,7 +2,7 @@
 
 namespace Iamonline.Data.Migrations
 {
-    public partial class RemovedEntityRefFromPersonWithRegardsToAddress : Migration
+    public partial class AddedOneToManyAndForeginKeyRef : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
