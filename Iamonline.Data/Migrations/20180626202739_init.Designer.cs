@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Iamonline.Data.Migrations
 {
     [DbContext(typeof(SiteDb))]
-    [Migration("20180626195530_init")]
+    [Migration("20180626202739_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

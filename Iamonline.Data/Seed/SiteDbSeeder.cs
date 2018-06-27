@@ -49,6 +49,7 @@ namespace Iamonline.Data.Seed
 
 			//CoreMembers > FK PersonId and ClientId
 			_db.CoreMembers.AddRange(_getData.GetEntities<CoreMember>("CoreMember.json"));
+			_db.SaveChanges();
 
 			//Blog
 			_db.BlogDetails.AddRange(_getData.GetEntities<BlogDetail>("BlogDetail.json"));
