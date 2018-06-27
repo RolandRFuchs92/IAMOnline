@@ -16,7 +16,6 @@ namespace Iamonline.Data.Entities
 
 		[ForeignKey("AddressId")]
 	    public Address Address { get; set; }
-		[ForeignKey("ClientId")]
 	    public List<CoreMember> CoreMembers { get; set; }
     }
 }

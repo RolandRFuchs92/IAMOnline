@@ -43,9 +43,11 @@ namespace Iamonline.Data.Seed
 
 			//Person
 			_db.Persons.AddRange(_getData.GetEntities<Person>("Person.json"));
+			_db.SaveChanges();
 
 			//Client
 			_db.Clients.AddRange(_getData.GetEntities<Client>("Client.json"));
+			_db.SaveChanges();
 
 			//CoreMembers > FK PersonId and ClientId
 			_db.CoreMembers.AddRange(_getData.GetEntities<CoreMember>("CoreMember.json"));
@@ -53,8 +55,9 @@ namespace Iamonline.Data.Seed
 
 			//Blog
 			_db.BlogDetails.AddRange(_getData.GetEntities<BlogDetail>("BlogDetail.json"));
-			_db.CoreBlogs.AddRange(_getData.GetEntities<CoreBlog>("CoreBlog.json"));
+			_db.SaveChanges();
 
+			_db.CoreBlogs.AddRange(_getData.GetEntities<CoreBlog>("CoreBlog.json"));
 			_db.SaveChanges();
 		}
 

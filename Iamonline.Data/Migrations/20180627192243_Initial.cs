@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Iamonline.Data.Migrations
 {
-    public partial class init : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -166,34 +166,11 @@ namespace Iamonline.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CoreBlogs",
-                columns: table => new
-                {
-                    CoreBlogId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    BlogDetailId = table.Column<int>(nullable: false),
-                    CoreMemberId = table.Column<int>(nullable: false),
-                    CreatedOn = table.Column<DateTime>(nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    IsActive = table.Column<bool>(nullable: false),
-                    BlodDetailId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CoreBlogs", x => x.CoreBlogId);
-                    table.ForeignKey(
-                        name: "FK_CoreBlogs_BlogDetails_BlodDetailId",
-                        column: x => x.BlodDetailId,
-                        principalTable: "BlogDetails",
-                        principalColumn: "BlogDetailId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "CoreMembers",
                 columns: table => new
                 {
-                    CoreMemberId = table.Column<int>(nullable: false),
+                    CoreMemberId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     PersonId = table.Column<int>(nullable: false),
                     ClientId = table.Column<int>(nullable: false)
                 },
@@ -207,16 +184,39 @@ namespace Iamonline.Data.Migrations
                         principalColumn: "ClientId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CoreMembers_CoreBlogs_CoreMemberId",
-                        column: x => x.CoreMemberId,
-                        principalTable: "CoreBlogs",
-                        principalColumn: "CoreBlogId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_CoreMembers_Persons_PersonId",
                         column: x => x.PersonId,
                         principalTable: "Persons",
                         principalColumn: "PersonId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CoreBlogs",
+                columns: table => new
+                {
+                    CoreBlogId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    BlogDetailId = table.Column<int>(nullable: false),
+                    CoreMemberId = table.Column<int>(nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    IsActive = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CoreBlogs", x => x.CoreBlogId);
+                    table.ForeignKey(
+                        name: "FK_CoreBlogs_BlogDetails_BlogDetailId",
+                        column: x => x.BlogDetailId,
+                        principalTable: "BlogDetails",
+                        principalColumn: "BlogDetailId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CoreBlogs_CoreMembers_CoreMemberId",
+                        column: x => x.CoreMemberId,
+                        principalTable: "CoreMembers",
+                        principalColumn: "CoreMemberId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -246,10 +246,15 @@ namespace Iamonline.Data.Migrations
                 column: "AddressId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CoreBlogs_BlodDetailId",
+                name: "IX_CoreBlogs_BlogDetailId",
                 table: "CoreBlogs",
-                column: "BlodDetailId",
+                column: "BlogDetailId",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CoreBlogs_CoreMemberId",
+                table: "CoreBlogs",
+                column: "CoreMemberId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CoreMembers_ClientId",
@@ -266,22 +271,25 @@ namespace Iamonline.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "CoreBlogs");
+
+            migrationBuilder.DropTable(
+                name: "BlogDetails");
+
+            migrationBuilder.DropTable(
                 name: "CoreMembers");
 
             migrationBuilder.DropTable(
-                name: "Clients");
+                name: "BlogTypes");
 
             migrationBuilder.DropTable(
-                name: "CoreBlogs");
+                name: "Clients");
 
             migrationBuilder.DropTable(
                 name: "Persons");
 
             migrationBuilder.DropTable(
                 name: "Addresses");
-
-            migrationBuilder.DropTable(
-                name: "BlogDetails");
 
             migrationBuilder.DropTable(
                 name: "AddressCountries");
@@ -291,9 +299,6 @@ namespace Iamonline.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AddressStreets");
-
-            migrationBuilder.DropTable(
-                name: "BlogTypes");
         }
     }
 }

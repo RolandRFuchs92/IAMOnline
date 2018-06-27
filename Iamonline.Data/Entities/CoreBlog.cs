@@ -15,9 +15,10 @@ namespace Iamonline.Data.Entities
 	    public bool IsDeleted { get; set; }
 	    public bool IsActive { get; set; }
 
-		[ForeignKey("BlodDetailId")]
+		[ForeignKey("BlogDetailId")]
 	    public BlogDetail BlogDetail { get; set; }
 		[ForeignKey("CoreMemberId")]
-	    public List<CoreMember> CoreMember { get; set; }
+	    public CoreMember CoreMember { get; set; }
 	}
 }
+	
