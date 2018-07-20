@@ -3,7 +3,7 @@ using System.Linq;
 using Iamonline.Context;
 using Iamonline.Entity;
 
-namespace Iamonline.Data.Repository
+namespace Iamonline.Repository
 {
     public class IamonlineRepository : IIamonlineRepository
 	{

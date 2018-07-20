@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using Iamonline.Context;
 using Iamonline.Entity;
 
-
-namespace Iamonline.Data.Repository
+namespace Iamonline.Repository
 {
 	public interface IIamonlineRepository
 	{

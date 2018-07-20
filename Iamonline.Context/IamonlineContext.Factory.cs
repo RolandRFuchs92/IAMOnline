@@ -1,8 +1,7 @@
-﻿using Iamonline.Context;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace Iamonline.Data
+namespace Iamonline.Context
 {
 	public class SiteDbFactory : IDesignTimeDbContextFactory<IamonlineContext>
 	{

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Iamonline.Context;
 using Iamonline.Context.Seed.Seed;
-using Iamonline.Data.Repository;
+using Iamonline.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
