@@ -12,4 +12,8 @@
 		<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.1.0-preview1-final" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Iamonline.Entity\Iamonline.Entity.csproj" />
+	</ItemGroup>
+
 </Project>

@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iamonline.BusinessLogic", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iamonline.Context", "Iamonline.Context\Iamonline.Context.csproj", "{C6D7A920-7E38-4CFA-8F41-49E22AD54C21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iamonline.Domain", "iamonline.domain\Iamonline.Domain.csproj", "{7F2C55D4-6696-4B85-B25E-BC94611885EC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iamonline.Context.Seed", "Iamonline.Context.Seed\Iamonline.Context.Seed.csproj", "{641947EE-0936-4456-80B0-B8BBD73143B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iamonline.Interface", "Iamoneline.Interface\Iamonline.Interface.csproj", "{105B969E-7739-4D50-AA84-03792B013203}"
@@ -45,10 +43,6 @@ Global
 		{C6D7A920-7E38-4CFA-8F41-49E22AD54C21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6D7A920-7E38-4CFA-8F41-49E22AD54C21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6D7A920-7E38-4CFA-8F41-49E22AD54C21}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7F2C55D4-6696-4B85-B25E-BC94611885EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F2C55D4-6696-4B85-B25E-BC94611885EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F2C55D4-6696-4B85-B25E-BC94611885EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F2C55D4-6696-4B85-B25E-BC94611885EC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{641947EE-0936-4456-80B0-B8BBD73143B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{641947EE-0936-4456-80B0-B8BBD73143B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{641947EE-0936-4456-80B0-B8BBD73143B6}.Release|Any CPU.ActiveCfg = Release|Any CPU

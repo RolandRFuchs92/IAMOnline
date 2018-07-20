@@ -9,6 +9,9 @@ namespace Iamonline.Context
 {
     public class IamonlineContext : DbContext
     {
-        
+		public IamonlineContext(DbContextOptions<IamonlineContext> options) : base(options) {
+	    }
+
+
     }
 }
