@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iamonline.ViewModel", "Iamo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iamonline.DTO", "Iamonline.DTO\Iamonline.DTO.csproj", "{10B98179-B4DE-4C8A-B8F3-EEE3C42757BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iamonline.Repository", "Iamonline.Repository\Iamonline.Repository.csproj", "{78800435-2CC4-4B5A-8701-DA6A4B35AA93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{10B98179-B4DE-4C8A-B8F3-EEE3C42757BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10B98179-B4DE-4C8A-B8F3-EEE3C42757BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10B98179-B4DE-4C8A-B8F3-EEE3C42757BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78800435-2CC4-4B5A-8701-DA6A4B35AA93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78800435-2CC4-4B5A-8701-DA6A4B35AA93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78800435-2CC4-4B5A-8701-DA6A4B35AA93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78800435-2CC4-4B5A-8701-DA6A4B35AA93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
