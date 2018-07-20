@@ -5,24 +5,25 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Iamonline.Data.Context;
-using Iamonline.Data.Entities;
+using Iamonline.Context;
+using Iamonline.Entity;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Iamonline.Data.Seed.Utilities;
 
+
 namespace Iamonline.Data.Seed
 {
 	public class SiteDbSeeder
 	{
-		private readonly SiteDb _db;
+		private readonly IamonlineContext _db;
 		private readonly IHostingEnvironment _hosting;
 		private readonly string _path;
 		public static readonly MethodInfo _dbSetMethod = typeof(DbContext).GetMethods().Single(m => m.Name == "Set" && m.IsGenericMethod);
 		private readonly GetData _getData;
 
-		public SiteDbSeeder(SiteDb db, IHostingEnvironment hosting)
+		public SiteDbSeeder(IamonlineContext db, IHostingEnvironment hosting)
 		{
 			_db = db;
 			_hosting = hosting;

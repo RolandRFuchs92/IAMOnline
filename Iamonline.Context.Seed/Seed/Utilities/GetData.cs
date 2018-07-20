@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Iamonline.Data.Context;
+using Iamonline.Context;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -15,12 +15,12 @@ namespace Iamonline.Data.Seed.Utilities
 {
     public class GetData
     {
-	    private readonly SiteDb _db;
+	    private readonly IamonlineContext _db;
 	    private IHostingEnvironment _hosting;
 	    private string _path;
 	    public static readonly MethodInfo _dbSetMethod = typeof(DbContext).GetMethods().Single(m => m.Name == "Set" && m.IsGenericMethod);
 
-		public GetData(SiteDb db, IHostingEnvironment hosting)
+		public GetData(IamonlineContext db, IHostingEnvironment hosting)
 	    {
 		    _db = db;
 		    _hosting = hosting;

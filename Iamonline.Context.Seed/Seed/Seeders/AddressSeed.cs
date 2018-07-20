@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Iamonline.Data.Context;
-using Iamonline.Data.Entities;
+using Iamonline.Context;
+using Iamonline.Entity;
 
 namespace Iamonline.Data.Seed.Seeders
 {
     public class AddressSeed
     {
-	    private readonly SiteDb _db;
+	    private readonly IamonlineContext _db;
 
-	    public AddressSeed(SiteDb _db)
+	    public AddressSeed(IamonlineContext _db)
 	    {
 		    this._db = _db;
 	    }
