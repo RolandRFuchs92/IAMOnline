@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Iamonline.Context
+namespace Iamonline.DTO
 {
     public class Class1
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace iamonline.domain
+namespace Iamonline.ViewModel
 {
     public class Class1
     {
