@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Iamonline.Data.Context;
+using Iamonline.Context;
+using Iamonline.Context.Seed.Seed;
 using Iamonline.Data.Repository;
-using Iamonline.Data.Seed;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -28,13 +28,13 @@ namespace Iamonline
 		// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddDbContext<SiteDb>(cfg =>
+			services.AddDbContext<IamonlineContext>(cfg =>
 				{
-					cfg.UseSqlServer(_config.GetConnectionString("SiteDb"), b => b.MigrationsAssembly("DataAccess"));
+					cfg.UseSqlServer(_config.GetConnectionString("IamonlineContext"), b => b.MigrationsAssembly("DataAccess"));
 				});
 
-			services.AddTransient<SiteDbSeeder>();
-			services.AddScoped<ISiteDbRepository, SiteDbRepository>();
+			services.AddTransient<IamonlineSeeder>();
+			services.AddScoped<IIamonlineRepository, IamonlineRepository>();
 			services.AddMvc()
 				.AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 		}
@@ -62,7 +62,7 @@ namespace Iamonline
 			//Seed The database
 			using (var scope = app.ApplicationServices.CreateScope())
 			{
-				var seeder = scope.ServiceProvider.GetService<SiteDbSeeder>();
+				var seeder = scope.ServiceProvider.GetService<IamonlineSeeder>();
 
 				seeder.SeedPersistedData();
 				if (env.IsDevelopment()) seeder.SeedDummyData();

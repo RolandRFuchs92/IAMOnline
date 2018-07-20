@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Iamonline.Context;
 using Iamonline.Entity;
 
-namespace Iamonline.Data.Seed.Seeders
+namespace Iamonline.Context.Seed.Seed.Seeders
 {
     public class AddressSeed
     {

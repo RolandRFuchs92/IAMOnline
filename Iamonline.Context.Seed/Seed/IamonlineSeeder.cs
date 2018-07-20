@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Iamonline.Context;
+using Iamonline.Context.Seed.Seed.Utilities;
 using Iamonline.Entity;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
-using Iamonline.Data.Seed.Utilities;
 
-
-namespace Iamonline.Data.Seed
+namespace Iamonline.Context.Seed.Seed
 {
-	public class SiteDbSeeder
+	public class IamonlineSeeder
 	{
 		private readonly IamonlineContext _db;
 		private readonly IHostingEnvironment _hosting;
@@ -23,7 +16,7 @@ namespace Iamonline.Data.Seed
 		public static readonly MethodInfo _dbSetMethod = typeof(DbContext).GetMethods().Single(m => m.Name == "Set" && m.IsGenericMethod);
 		private readonly GetData _getData;
 
-		public SiteDbSeeder(IamonlineContext db, IHostingEnvironment hosting)
+		public IamonlineSeeder(IamonlineContext db, IHostingEnvironment hosting)
 		{
 			_db = db;
 			_hosting = hosting;
@@ -71,7 +64,7 @@ namespace Iamonline.Data.Seed
 			_db.SaveChanges();
 		}
 
-		
+
 
 	}
 }

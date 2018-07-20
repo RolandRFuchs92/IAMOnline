@@ -5,13 +5,12 @@ using Iamonline.Entity;
 
 namespace Iamonline.Data.Repository
 {
-    public class SiteDbRepository  //<T> where T : class
-	    : ISiteDbRepository
-    {
+    public class IamonlineRepository : IIamonlineRepository
+	{
 	    private readonly IamonlineContext _db;
 	    //private DbSet<T> _dbSet;
 
-	    public SiteDbRepository(IamonlineContext db)
+	    public IamonlineRepository(IamonlineContext db)
 	    {
 		    _db = db;
 		    //_dbSet = _db.Set<T>();

@@ -5,7 +5,7 @@ using Iamonline.Entity;
 
 namespace Iamonline.Data.Repository
 {
-	public interface ISiteDbRepository
+	public interface IIamonlineRepository
 	{
 		IEnumerable<AddressCountry> AddressCountries();
 		IEnumerable<AddressCountry> GetAddressCountriesByCountry(string country);

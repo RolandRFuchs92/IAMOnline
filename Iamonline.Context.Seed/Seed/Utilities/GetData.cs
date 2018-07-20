@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Iamonline.Context;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
-namespace Iamonline.Data.Seed.Utilities
+namespace Iamonline.Context.Seed.Seed.Utilities
 {
     public class GetData
     {
