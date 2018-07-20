@@ -1,0 +1,91 @@
+﻿[
+	{
+		"BlogDetailId": 1,
+		"CoreMemberId": 8,
+		"CreatedOn": "12 Apr 2015",
+		"IsDeleted": true,
+		"IsActive": true
+	},
+	{
+		"BlogDetailId": 2,
+		"CoreMemberId": 7,
+		"CreatedOn": "12 Dec 2014",
+		"IsDeleted": true,
+		"IsActive": false
+	},
+	{
+		"BlogDetailId": 3,
+		"CoreMemberId": 10,
+		"CreatedOn": "18 Aug 2016",
+		"IsDeleted": true,
+		"IsActive": false
+	},
+	{
+		"BlogDetailId": 4,
+		"CoreMemberId": 10,
+		"CreatedOn": "02 Oct 2017",
+		"IsDeleted": true,
+		"IsActive": false
+	},
+	{
+		"BlogDetailId": 5,
+		"CoreMemberId": 9,
+		"CreatedOn": "16 Aug 2016",
+		"IsDeleted": true,
+		"IsActive": false
+	},
+	{
+		"BlogDetailId": 6,
+		"CoreMemberId": 7,
+		"CreatedOn": "02 Nov 2015",
+		"IsDeleted": false,
+		"IsActive": true
+	},
+	{
+		"BlogDetailId": 7,
+		"CoreMemberId": 9,
+		"CreatedOn": "20 Nov 2014",
+		"IsDeleted": true,
+		"IsActive": false
+	},
+	{
+		"BlogDetailId": 8,
+		"CoreMemberId": 5,
+		"CreatedOn": "18 Nov 2015",
+		"IsDeleted": true,
+		"IsActive": true
+	},
+	{
+		"BlogDetailId": 9,
+		"CoreMemberId": 9,
+		"CreatedOn": "07 Aug 2017",
+		"IsDeleted": true,
+		"IsActive": true
+	},
+	{
+		"BlogDetailId": 10,
+		"CoreMemberId": 7,
+		"CreatedOn": "12 Nov 2015",
+		"IsDeleted": true,
+		"IsActive": false
+	}
+]
+
+/*
+ 
+	https://next.json-generator.com/VJ8tY9y-B
+
+	[
+  {
+    'repeat(10, 10)': {
+      'BlogDetailId' : '{{integer(1, 10)}}',
+      'CoreMemberId' : '{{integer(1, 10)}}',
+      'CreatedOn': '{{moment(this.date(new Date(2014, 0, 1), new Date())).format("DD MMM YYYY")}}',
+      'IsDeleted' : '{{bool()}}',
+     'IsActive' : '{{bool()}}'
+      
+    }
+  }
+]
+
+ */

@@ -1,0 +1,58 @@
+[
+	{
+		"CountryName": "Chad",
+		"CountryCode": "Cha"
+	},
+	{
+		"CountryName": "Kuwait",
+		"CountryCode": "Kuw"
+	},
+	{
+		"CountryName": "Cyprus",
+		"CountryCode": "Cyp"
+	},
+	{
+		"CountryName": "Luxembourg",
+		"CountryCode": "Lux"
+	},
+	{
+		"CountryName": "Madagascar",
+		"CountryCode": "Mad"
+	},
+	{
+		"CountryName": "Turks and Caicos Islands",
+		"CountryCode": "Tur"
+	},
+	{
+		"CountryName": "Morocco",
+		"CountryCode": "Mor"
+	},
+	{
+		"CountryName": "Honduras",
+		"CountryCode": "Hon"
+	},
+	{
+		"CountryName": "Bosnia and Herzegovina",
+		"CountryCode": "Bos"
+	},
+	{
+		"CountryName": "Fiji",
+		"CountryCode": "Fij"
+	}
+]
+
+/*
+ 
+	https://next.json-generator.com/VJreW91-r
+
+[
+  {
+    'repeat(10, 10)': {
+     'CountryName':'{{country()}}',
+      CountryCode(tags) {
+        return this.CountryName.substr(0,3);
+      }
+    }
+  }
+]
+*/
