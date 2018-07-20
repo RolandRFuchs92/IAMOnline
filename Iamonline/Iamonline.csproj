@@ -17,8 +17,4 @@
 	<ItemGroup>
 		<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.1.0" />
 	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\Iamonline.Data\Iamonline.Data.csproj" />
-	</ItemGroup>
 </Project>
