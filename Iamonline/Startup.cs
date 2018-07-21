@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Iamonline.Context;
 using Iamonline.Context.Seed.Seed;
 using Iamonline.Repository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -35,8 +36,24 @@ namespace Iamonline
 
 			services.AddTransient<IamonlineSeeder>();
 			services.AddScoped<IIamonlineRepository, IamonlineRepository>();
+
+
+
 			services.AddMvc()
 				.AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+
+			services.AddAuthentication(options =>
+			{
+				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+				options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+			}).AddJwtBearer(options =>
+			{
+				options.Authority = _config["Auth0:Authority"];
+				options.Audience = _config["Auth0:Audience"];
+				options.RequireHttpsMetadata = false;
+			});
+
+
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +68,9 @@ namespace Iamonline
 				app.UseExceptionHandler("/error");
 			}
 
+			app.UseAuthentication();
 			app.UseStaticFiles();
+
 			app.UseMvc(cfg =>
 			{
 				cfg.MapRoute("Default",

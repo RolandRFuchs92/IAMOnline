@@ -3,9 +3,20 @@
 		"IamonlineContext": "server=MSI\\SQLEXPRESS;Database=IamonlineContext;Integrated Security=true;MultipleActiveResultSets=true;"
 	},
 	"Logging": {
-		"LogLevel": {
-			"SiteDb": "Information",
-			"Microsoft": "Warning"
+		"IncludeScopes": false,
+		"Debug": {
+			"LogLevel": {
+				"Default": "Warning"
+			}
+		},
+		"Console": {
+			"LogLevel": {
+				"Default": "Warning"
+			}
 		}
+	},
+	"Auth0": {
+		"Authority": "iamonline.eu.auth0.com",
+		"Audience": "https://iamonline.co.za"
 	}
 }
