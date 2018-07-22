@@ -16,7 +16,7 @@
 		}
 	},
 	"Auth0": {
-		"Authority": "iamonline.eu.auth0.com",
+		"Authority": "https://iamonline.eu.auth0.com",
 		"Audience": "https://iamonline.co.za"
 	}
 }
