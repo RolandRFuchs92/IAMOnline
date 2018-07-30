@@ -5,8 +5,8 @@ export class BS4Text extends React.Component {
 	render() {
 		return (
 			<FormGroup>
-				<Label for="username">Username</Label>
-				<Input type="text" name="username" id="username" placeholder="Username" />
+				<Label for={this.props.data.id}>{this.props.data.name}</Label>
+				<Input type="text" name={this.props.data.id} id={this.props.data.id} placeholder={this.props.data.placeholder} />
 			</FormGroup>
 			);
 	}
